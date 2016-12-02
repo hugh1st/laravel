@@ -14,3 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('bridge', function () {
+    $pusher = \Illuminate\Support\Facades\App::make('pusher');
+
+    $pusher->trigger( 'test-channel',
+                      'test-event', 
+                      ['text' => 'I Love China!!!']
+                    );
+    return 'This is a Laravel Pusher Bridge Test!';
+});
