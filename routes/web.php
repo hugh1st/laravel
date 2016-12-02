@@ -24,3 +24,8 @@ Route::get('bridge', function () {
                     );
     return 'This is a Laravel Pusher Bridge Test!';
 });
+
+Route::get('broadcast', function () {
+    event(new \App\Events\PusherEvent('Great Wall is great ', '1'));
+    return 'This is a Laravel Broadcast Test!';
+});
